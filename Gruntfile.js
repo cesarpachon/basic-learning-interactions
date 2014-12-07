@@ -11,7 +11,8 @@ module.exports = function (grunt) {
             {expand: true,
              src: [
                'vendor/jquery/jquery.js',
-               'vendor/jquery-mobile-bower/js/jquery.mobile-1.4.2.js'
+               'vendor/jquery-mobile-bower/js/jquery.mobile-1.4.2.js',
+		'vendor/jquery-ui/jquery-ui.js'
                ],
              flatten: true,
              dest: 'www/lib',
@@ -31,7 +32,8 @@ module.exports = function (grunt) {
           files:[
             {expand: true,
              src: [
-               'vendor/jquery-mobile-bower/css/jquery.mobile-1.4.2.css'
+               'vendor/jquery-mobile-bower/css/jquery.mobile-1.4.2.css',
+               'vendor/jquery-ui/themes/smoothness/jquery-ui.css'
                ],
              flatten: true,
              dest: 'www/css',

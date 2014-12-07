@@ -9,8 +9,9 @@
   "main": "index.js",
   "license": "Affero GPL 3",
   "private": true,
- "dependencies": {
-    "jquery-mobile-bower":"latest",
-    "jquery":"latest"
+  "dependencies": {
+    "jquery-mobile-bower": "latest",
+    "jquery": "latest",
+    "jquery-ui": "~1.11.2"
   }
 }
