@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.2.css" />
+        <link rel="stylesheet" href="css/cuentacuentos.css" />
+
+        <title>Hello World</title>
+        <script type="text/javascript" src="lib/jquery.js"></script>
+    </head>
+
+    <body>
+
+        <div id="page_main" data-role="page">
+
+            <h1>main</h1>
+            <p>content of main</p>
+            <a id="goto_page_books" href="#" data-transition="slide" >go to books</a>
+        </div>
+
+        <div id="page_books" data-role="page">
+            <h1>books</h1>
+            <p>content of books</p>
+            <ul id="books"></ul>
+        </div>
+
+        <div id="page_book" data-role="page">
+            <h1>Book</h1>
+            <p>content of book</p>
+            <ul id="tales"></ul>
+        </div>
+
+        <div id="page_tale" data-role="page">
+            <div id="tale_header">
+            <h1>tale</h1>
+            </div>
+
+            <ul id="pages">
+            </ul>
+
+            <div id="right_content">
+                <div id="active_page">
+                    <img id="active_page_img" src="" />
+                </div>
+                <div id="sound">
+                     <audio src="" controls loop>
+                    HTML5 audio not supported
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+
+    <!--loading models (all this stuff is within Cuentacuentos namespace) -->
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/book.js"></script>
+    <script type="text/javascript" src="js/tale.js"></script>
+
+    <script type="text/javascript" src="js/listeners.js"></script>
+
+    <!--loading views and controllers -->
+    <script type="text/javascript" src="js/page_books.js"></script>
+    <script type="text/javascript" src="js/page_book.js"></script>
+    <script type="text/javascript" src="js/page_tale.js"></script>
+
+    <script type="text/javascript" src="js/index.js"></script>
+<!-- we put jquery mobile here because that is the way to catch mobileinit event-->
+<script type="text/javascript" src="lib/jquery.mobile-1.4.2.js"></script>
+
+</html>
