@@ -1,0 +1,16 @@
+.falsetrue_feedback_ok{
+  display:none;
+}
+
+
+.falsetrue_feedback_bad{
+  display:none;
+}
+
+.question{
+  margin:20px;
+}
+
+ol li{
+  margin:20px;
+}

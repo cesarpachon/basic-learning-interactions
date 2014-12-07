@@ -5,21 +5,39 @@
 
         <link rel="stylesheet" href="css/jquery-ui.css" />
         <link rel="stylesheet" href="css/basic.css" />
+        <link rel="stylesheet" href="css/falsetrue.css" />
 
-        <title>Hello World</title>
+        <title>False or True</title>
         <script type="text/javascript" src="lib/jquery.js"></script>
         <script type="text/javascript" src="lib/jquery-ui.js"></script>
     </head>
 
     <body>
 
-            <h1>main</h1>
-            <p>content of main</p>
-            <a id="goto_page_books" href="#" data-transition="slide" >go to books</a>
+            <h1>Some False or True questions</h1>
+            <p>Answer False or True. then click validate.</p>
+
+            <div class='falsetrue_feedback_ok' >well done!</div>
+            <div class='falsetrue_feedback_bad' >oops!</div>
+
+        <form>
+            <ol class='falsetrue_questions'>
+            </ol>
+        </form>
+
+        <button class='falsetrue_validate'>Validate</button>
+        <button class='falsetrue_reset'>Reset</button>
 
     </body>
 
-
     <script type="text/javascript" src="js/falsetrue.js"></script>
+    <script type="text/javascript">
+      FalseTrue.init();
+      FalseTrue.add_question("question 1. what if I have a very very very very loooooooong question? a Really big one, I mean...?", false);
+      FalseTrue.add_question("question 2", true);
+      FalseTrue.add_question("question 3", true);
+
+    </script>
+
 
 </html>
