@@ -1,0 +1,16 @@
+{
+  "name": "basic-learning-interactions",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cesarpachon/basic-learning-interactions",
+  "authors": [
+    "cesarpachon <cesarpachon@gmail.com>"
+  ],
+  "description": "testing some basic learning interactions",
+  "main": "index.js",
+  "license": "Affero GPL 3",
+  "private": true,
+ "dependencies": {
+    "jquery-mobile-bower":"latest",
+    "jquery":"latest"
+  }
+}
