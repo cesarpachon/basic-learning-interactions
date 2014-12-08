@@ -1,19 +1,28 @@
-var FalseTrue = (function($){
+var Drag = (function($){
   "use strict";
-  var falseTrue = {};
+  var drag = {};
 
   //array of booleans
   var _answers = [];
   var _validanswers = [];
 
-  falseTrue.init = function(){
-    $('ol.falsetrue_questions').empty();
-    $('button.falsetrue_validate').on('click', function(){ falseTrue.validate();});
-    $('button.falsetrue_reset').on('click', function(){ falseTrue.reset();});
+  drag.init = function(){
+
+    $.ajax({
+      type:"GET",
+      url: "drag.svg",
+      dataType: "html",
+      success: function( svg ) {
+         $("#svg_container").html(svg);
+         $('button.falsetrue_validate').on('click', function(){ drag.validate();});
+         $('button.falsetrue_reset').on('click', function(){ drag.reset();});
+      }
+    });
+
   };
 
 
-  falseTrue.add_question = function(question, validanswer){
+  drag.add_question = function(question, validanswer){
     console.log("adding question");
     var id = "question_"+_answers.length;
     var $input = $(
@@ -43,7 +52,7 @@ var FalseTrue = (function($){
   };
 
 
-  falseTrue.validate = function(){
+  drag.validate = function(){
 
     var valid = true;
     for(var i = 0; i<_answers.length; ++i){
@@ -60,7 +69,7 @@ var FalseTrue = (function($){
 
   };
 
-  falseTrue.reset = function(){
+  drag.reset = function(){
       $('.feedback_ok').hide(100);
       $('.feedback_bad').hide(100);
     console.log("reset");
@@ -69,8 +78,6 @@ var FalseTrue = (function($){
     }
   };
 
-
-
-  return falseTrue;
+  return drag;
 
 })($);
