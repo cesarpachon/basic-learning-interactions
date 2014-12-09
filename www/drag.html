@@ -14,39 +14,25 @@
 
     <body>
 
-            <h1>Drag</h1>
-            <p>Drag the items to the right positions.</p>
+        <h1>Drag</h1>
+        <p>Drag the items to the right positions.</p>
 
-            <div class='feedback_ok' >well done!</div>
+        <div class='feedback_ok' >well done!</div>
             <div class='feedback_bad' >oops!</div>
 
-            <div id="svg_container">
-
-
+        <div id="svg_container">
         </div>
-
-<!--
-            <svg id="circle" height="300" width="500"
-                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-              <image x="0" y="0" height="300" width="500"  xlink:href="drag.svg" />
-            </svg>
--->
 
         <div class='drag_items'>
-            <div class='drag_item ui-widget-content'>item1</div>
-            <div class='drag_item ui-widget-content'>item2</div>
-            <div class='drag_item ui-widget-content'>item3</div>
+            <div id="target1", class='drag_item ui-widget-content'>item1</div>
+            <div id="target2", class='drag_item ui-widget-content'>item2</div>
+            <div id="target3", class='drag_item ui-widget-content'>item3</div>
         </div>
 
 
-
-        <button class='falsetrue_validate'>Validate</button>
-        <button class='falsetrue_reset'>Reset</button>
-
-        <div id="drop_test">DROP HERE DROP HEREDROP HEREDROP HERE <br>
-        DROP HERE DROP HEREDROP HEREDROP HERE <br>
-        DROP HERE DROP HEREDROP HEREDROP HERE <br>
-        DROP HERE DROP HEREDROP HEREDROP HERE <br>
+        <div class="buttons_bar">
+            <button class='falsetrue_validate'>Validate</button>
+            <button class='falsetrue_reset'>Reset</button>
         </div>
 
     </body>
@@ -63,36 +49,17 @@
                 Drag.add_droppable("target3");
 
 
-                $(".drag_item").draggable();
-
-                $("#target0").droppable({
-                    drop: function( event, ui ) {
-                        console.log("dropped");
-                    }
+                $(".drag_item").draggable({
+                    revert: "invalid",
+                    snap: ".drop-item"
                 });
 
 
-                $("#target1").droppable({
-                    drop: function( event, ui ) {
-                        console.log("dropped");
-                    }
-                });
 
-                $("#drop_test").droppable({
-                    drop: function( event, ui ) {
-                        console.log("dropped");
-                    }
-                });
 
             });
         });
 
-
-      /*FalseTrue.init();
-      FalseTrue.add_question("question 1. what if I have a very very very very loooooooong question? a Really big one, I mean...?", false);
-      FalseTrue.add_question("question 2", true);
-      FalseTrue.add_question("question 3", true);
-    */
     </script>
 
 

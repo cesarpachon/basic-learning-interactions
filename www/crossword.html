@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/basic.css" />
+        <link rel="stylesheet" href="css/crossword.css" />
+
+        <title>Drag</title>
+        <script type="text/javascript" src="lib/jquery.js"></script>
+        <script type="text/javascript" src="lib/jquery-ui.js"></script>
+    </head>
+
+    <body>
+
+        <h1>Crossword</h1>
+        <p>write the right word in the right position.</p>
+
+        <div class='feedback_ok' >well done!</div>
+            <div class='feedback_bad' >oops!</div>
+
+        <div id="crossword_container">
+        </div>
+
+
+        <div class="buttons_bar">
+            <button class='falsetrue_validate'>Validate</button>
+            <button class='falsetrue_reset'>Reset</button>
+        </div>
+
+    </body>
+
+    <script type="text/javascript" src="js/crossword.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            Crossword.init(20, 20);
+            Crossword.add_word("word1", "horizontal", 2, 1);
+            Crossword.add_word("word2", "vertical", 5, 6);
+
+
+        });
+
+    </script>
+
+
+</html>

@@ -1,0 +1,25 @@
+.cell{
+  float:left;
+  width:30px;
+  height:30px;
+  padding:3px;
+  text-align:center;
+  text-valign:center;
+}
+
+
+.cell_label{
+  color: red;
+}
+
+.cell_focusable{
+  border: 1px solid gray;
+}
+
+.cell_focused{
+  border: 4px solid red !important;
+}
+
+.row_end{
+ clear:both;
+}

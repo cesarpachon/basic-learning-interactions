@@ -1,3 +1,7 @@
+button{
+ padding:10px;
+}
+
 .feedback_ok{
   display:none;
 }
@@ -7,7 +11,6 @@
   display:none;
 }
 
-
-button{
- padding:10px;
+.buttons_bar{
+  clear:both;
 }
