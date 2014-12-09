@@ -43,17 +43,42 @@
         <button class='falsetrue_validate'>Validate</button>
         <button class='falsetrue_reset'>Reset</button>
 
+        <div id="drop_test">DROP HERE DROP HEREDROP HEREDROP HERE <br>
+        DROP HERE DROP HEREDROP HEREDROP HERE <br>
+        DROP HERE DROP HEREDROP HEREDROP HERE <br>
+        DROP HERE DROP HEREDROP HEREDROP HERE <br>
+        </div>
+
     </body>
 
     <script type="text/javascript" src="js/drag.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function(){
-            Drag.init();
-            $( ".drag_item" ).draggable();
+            Drag.init(function(){
+                $(".drag_item").draggable();
 
+                $("#target0").droppable({
+                    drop: function( event, ui ) {
+                        console.log("dropped");
+                    }
+                });
+
+
+                $("#target1").droppable({
+                    drop: function( event, ui ) {
+                        console.log("dropped");
+                    }
+                });
+
+                $("#drop_test").droppable({
+                    drop: function( event, ui ) {
+                        console.log("dropped");
+                    }
+                });
+
+            });
         });
-
 
 
       /*FalseTrue.init();

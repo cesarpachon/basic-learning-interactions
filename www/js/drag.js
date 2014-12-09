@@ -6,7 +6,7 @@ var Drag = (function($){
   var _answers = [];
   var _validanswers = [];
 
-  drag.init = function(){
+  drag.init = function(cb){
 
     $.ajax({
       type:"GET",
@@ -16,6 +16,7 @@ var Drag = (function($){
          $("#svg_container").html(svg);
          $('button.falsetrue_validate').on('click', function(){ drag.validate();});
          $('button.falsetrue_reset').on('click', function(){ drag.reset();});
+        cb();
       }
     });
 
