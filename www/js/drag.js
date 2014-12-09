@@ -6,6 +6,9 @@ var Drag = (function($){
   var _answers = [];
   var _validanswers = [];
 
+	var _svg_container = null;
+
+
   drag.init = function(cb){
 
     $.ajax({
@@ -13,7 +16,8 @@ var Drag = (function($){
       url: "drag.svg",
       dataType: "html",
       success: function( svg ) {
-         $("#svg_container").html(svg);
+				_svg_container=$("#svg_container");
+         _svg_container.html(svg);
          $('button.falsetrue_validate').on('click', function(){ drag.validate();});
          $('button.falsetrue_reset').on('click', function(){ drag.reset();});
         cb();
@@ -21,6 +25,52 @@ var Drag = (function($){
     });
 
   };
+
+
+	/**
+	* insert a Dropable div trying to match the position of the given svg element
+	*/
+	drag.add_droppable = function(svg_item_id){
+		var svg_item = $("#"+svg_item_id)[0];
+		//var matrix = svg_item.getScreenCTM();
+
+
+		//get the height of the document
+		var docheight = parseInt($("svg").attr("height"));
+		console.log("docheight: ", docheight);
+
+		//get the global offset of inkscape
+		var transformstr = $("#layer1").attr("transform");
+		transformstr  = transformstr.replace("translate(", "");
+		transformstr  = transformstr.replace(")", "");
+		var tokens = transformstr.split(",");
+		var offx = parseInt(tokens[0]);
+		var offy = parseInt(tokens[1]);
+
+		console.log("offx: ", offx, "offy:", offy);
+
+
+		function getAttribPx(item, attr){
+			var val = item.getAttribute(attr);
+			return Math.floor(val);
+		}
+
+		var x = getAttribPx(svg_item, "x");
+		var y = getAttribPx(svg_item, "y");
+
+		console.log("svg_ittem attribs x, y: ", x, y);
+
+
+		var left = (x + offx) + "px";
+				var top =  (y- docheight /*- offy */) + "px";
+
+		var div = "<div class='drop_item' style=' ";
+		div += "left: "+ left + "; ";
+		div += "top: "+ top+ "; ";
+		div += "'>"+svg_item_id+"</div>";
+		console.log(div);
+		_svg_container.append($(div));
+	};
 
 
   drag.add_question = function(question, validanswer){
