@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/basic.css" />
+        <link rel="stylesheet" href="css/falsetrue.css" />
+
+        <title>False or True</title>
+        <script type="text/javascript" src="lib/jquery.js"></script>
+        <script type="text/javascript" src="lib/jquery-ui.js"></script>
+    </head>
+
+    <body>
+
+            <h1>Multiple options mixed with text</h1>
+            <p>Select the right options in the following text.</p>
+
+            <div class='feedback_ok' >well done!</div>
+            <div class='feedback_bad' >oops!</div>
+
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam
+            <select id="word1">
+                <option value="1">one</option>
+                <option value="2">two</option>
+                <option value="3">three</option>
+            </select>.
+                Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor.
+                Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur.
+                Donec ut libero sed arcu vehicula ultricies a non <select id="word2">
+                <option value="1">a</option>
+                <option value="2">b</option>
+                <option value="3">c</option>
+            </select>. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+        <p>Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis.
+            Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.
+            Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            In rutrum accumsan ultricies. <select id="word3">
+                <option value="1">E</option>
+                <option value="2">F</option>
+                <option value="3">G</option>
+            </select> vitae nisi at sem facilisis semper ac in est.</p>
+
+        <button class='falsetrue_validate'>Validate</button>
+        <button class='falsetrue_reset'>Reset</button>
+
+    </body>
+
+    <script type="text/javascript" src="js/multipleintext.js"></script>
+
+    <script type="text/javascript">
+        MultipleInText.init();
+        MultipleInText.add_question("word1", "1", "3");
+        MultipleInText.add_question("word2", "2", "3");
+        MultipleInText.add_question("word3", "3", "3");
+    </script>
+
+
+</html>
+
