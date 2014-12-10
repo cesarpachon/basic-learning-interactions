@@ -8,17 +8,22 @@ var Drag = (function($){
 	var _svg_container = null;
 
 
-  drag.init = function(cb){
+	drag.init = function(){
+		$('button.falsetrue_validate').on('click', function(){ drag.validate();});
+    $('button.falsetrue_reset').on('click', function(){ drag.reset();});
+	};
+
+
+  drag.initSVG = function(svgpath, cb){
 
     $.ajax({
       type:"GET",
-      url: "drag.svg",
+      url: svgpath,
       dataType: "html",
       success: function( svg ) {
 				_svg_container=$("#svg_container");
          _svg_container.html(svg);
-         $('button.falsetrue_validate').on('click', function(){ drag.validate();});
-         $('button.falsetrue_reset').on('click', function(){ drag.reset();});
+				drag.init();
         cb();
       }
     });
@@ -27,9 +32,9 @@ var Drag = (function($){
 
 
 	/**
-	* insert a Dropable div trying to match the position of the given svg element
+	* insert a new Dropable div trying to match the position of the given svg element
 	*/
-	drag.add_droppable = function(svg_item_id){
+	drag.add_droppableSVG = function(svg_item_id){
 		var svg_item = $("#"+svg_item_id)[0];
 
 		//get the height of the document
@@ -52,20 +57,25 @@ var Drag = (function($){
 		var y = getAttribPx(svg_item, "y");
 
 		var left = (x + offx) + "px";
-				var top =  (y- docheight /*- offy */) + "px";
+				var top =  (y/*- docheight*/ + offy ) + "px";
 
-		var div = "<div id='"+svg_item_id+"' class='drop_item' style=' ";
+		var div = "<div id='"+svg_item_id+"' class='drop_item_svg' style=' ";
 		div += "left: "+ left + "; ";
 		div += "top: "+ top+ "; ";
-		div += "'>"+svg_item_id+"</div>";
+		div += "'>"+"</div>";
 
     var $div = $(div);
     _svg_container.append($div);
 
-    $div.droppable();
+    drag.add_droppable($div);
+	};
 
 
-    $div.droppable({
+	/**
+	*/
+	drag.add_droppable = function($droppable){
+
+    $droppable.droppable({
       drop: function( event, ui ) {
         if(this.id === ui.draggable.attr("id")){
           _dropped_counter++;

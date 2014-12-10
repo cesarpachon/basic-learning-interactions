@@ -41,12 +41,12 @@
     <script type="text/javascript">
 
         $(document).ready(function(){
-            Drag.init(function(){
+            Drag.initSVG("drag.svg", function(){
 
                 //Drag.add_droppable("target0");
-                Drag.add_droppable("target1");
-                Drag.add_droppable("target2");
-                Drag.add_droppable("target3");
+                Drag.add_droppableSVG("target1");
+                Drag.add_droppableSVG("target2");
+                Drag.add_droppableSVG("target3");
 
 
                 $(".drag_item").draggable({
